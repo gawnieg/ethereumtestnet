@@ -1,0 +1,78 @@
+var browser_simpleauction_sol_simpleauctionContract = web3.eth.contract([{"constant":false,"inputs":[],"name":"bid","outputs":[],"payable":true,"type":"function"},{"constant":false,"inputs":[],"name":"auctionEnd","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"beneficiary","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"withdraw","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"auctionStart","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"highestBidder","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"biddingTime","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"highestBid","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"inputs":[{"name":"_biddingTime","type":"uint256"},{"name":"_beneficiary","type":"address"}],"payable":false,"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"bidder","type":"address"},{"indexed":false,"name":"amount","type":"uint256"}],"name":"HighestBidIncreased","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"winner","type":"address"},{"indexed":false,"name":"amount","type":"uint256"}],"name":"AuctionEnded","type":"event"}]);
+var browser_simpleauction_sol_simpleauction = browser_simpleauction_sol_simpleauctionContract.new(
+   _biddingTime,
+   _beneficiary,
+   {
+     from: web3.eth.accounts[0],
+     data: '0x6060604052341561000f57600080fd5b604051604080610716833981016040528080519060200190919080519060200190919050505b806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555042600181905550816002819055505b50505b610680806100966000396000f3006060604052361561008c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680631998aeef146100915780632a24f46c1461009b57806338af3eed146100b05780633ccfd60b146101055780634f245ef71461013257806391f901571461015b578063d074a38d146101b0578063d57bde79146101d9575b600080fd5b610099610202565b005b34156100a657600080fd5b6100ae610391565b005b34156100bb57600080fd5b6100c36104d2565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561011057600080fd5b6101186104f7565b604051808215151515815260200191505060405180910390f35b341561013d57600080fd5b61014561061c565b6040518082815260200191505060405180910390f35b341561016657600080fd5b61016e610622565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34156101bb57600080fd5b6101c3610648565b6040518082815260200191505060405180910390f35b34156101e457600080fd5b6101ec61064e565b6040518082815260200191505060405180910390f35b60025460015401421115151561021757600080fd5b6004543411151561022757600080fd5b6000600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff161415156102db5760045460056000600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082825401925050819055505b33600360006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550346004819055507ff4757a49b326036464bec6fe419a4ae38c8a02ce3e68bf0809674f6aab8ad3003334604051808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018281526020019250505060405180910390a15b565b6002546001540142101515156103a657600080fd5b600660009054906101000a900460ff161515156103c257600080fd5b6001600660006101000a81548160ff0219169083151502179055507fdaec4582d5d9595688c8c98545fdd1c696d41c6aeaeb636737e84ed2f5c00eda600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16600454604051808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018281526020019250505060405180910390a16000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc6004549081150290604051600060405180830381858888f1935050505015156104cf57600080fd5b5b565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600080600560003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205490506000811115610613576000600560003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819055503373ffffffffffffffffffffffffffffffffffffffff166108fc829081150290604051600060405180830381858888f1935050505015156106125780600560003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000208190555060009150610618565b5b600191505b5090565b60015481565b600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60025481565b600454815600a165627a7a7230582026554b2d16125c991015cacfa0283432507ea38ec03ab4db1b5b5d7866b4c24e0029',
+     gas: '4300000'
+   }, function (e, contract){
+    console.log(e, contract);
+    if (typeof contract.address !== 'undefined') {
+         console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
+    }
+ })
+Deployed
+ INFO [08-15|16:39:38] Submitted contract creation              fullhash=0xabc34d89f50cf3ccee34cfbf03d3ed1e4d2ea050c598004bae70ab56188601de contract=0x5f88710aedd2ad41faab497c04545c4ed541b9bb
+null [object Object]
+undefined
+
+
+bid 777 at
+INFO [08-15|16:45:38] Submitted transaction                    fullhash=0x23754bbf31fd71d92c4bb40f1c33a373ebdf943fb8edf3358ffa1fe5d94ccba2 recipient=0x5f88710aedd2ad41faab497c04545c4ed541b9bb
+"0x23754bbf31fd71d92c4bb40f1c33a373ebdf943fb8edf3358ffa1fe5d94ccba2"
+
+
+auctionEnd
+web3.eth.sendTransaction({to:"0x5f88710aedd2ad41faab497c04545c4ed541b9bb", from: eth.accounts[0], data: getData})
+INFO [08-15|17:07:58] Submitted transaction                    fullhash=0x80a922e6fc5921416f512f79df8e93c56993ae90e7de1977c31e2e4fe8e3a5dc recipient=0x5f88710aedd2ad41faab497c04545c4ed541b9bb
+"0x80a922e6fc5921416f512f79df8e93c56993ae90e7de1977c31e2e4fe8e3a5dc"
+
+Works
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&7
+
+var browser_modifiedauction_sol_simpleauctionContract = web3.eth.contract([{"constant":false,"inputs":[],"name":"bid","outputs":[],"payable":true,"type":"function"},{"constant":false,"inputs":[],"name":"auctionEnd","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"beneficiary","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"withdraw","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"auctionStart","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"highestBidder","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"biddingTime","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"highestBid","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"inputs":[{"name":"_biddingTime","type":"uint256"},{"name":"_beneficiary","type":"address"}],"payable":false,"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"bidder","type":"address"},{"indexed":false,"name":"amount","type":"uint256"}],"name":"HighestBidIncreased","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"winner","type":"address"},{"indexed":false,"name":"amount","type":"uint256"}],"name":"AuctionEnded","type":"event"}]);
+var browser_modifiedauction_sol_simpleauction = browser_modifiedauction_sol_simpleauctionContract.new(
+   _biddingTime,
+   _beneficiary,
+   {
+     from: web3.eth.accounts[0],
+     data: '0x6060604052341561000f57600080fd5b604051604080610716833981016040528080519060200190919080519060200190919050505b806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555042600181905550816002819055505b50505b610680806100966000396000f3006060604052361561008c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680631998aeef146100915780632a24f46c1461009b57806338af3eed146100b05780633ccfd60b146101055780634f245ef71461013257806391f901571461015b578063d074a38d146101b0578063d57bde79146101d9575b600080fd5b610099610202565b005b34156100a657600080fd5b6100ae610391565b005b34156100bb57600080fd5b6100c36104d2565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561011057600080fd5b6101186104f7565b604051808215151515815260200191505060405180910390f35b341561013d57600080fd5b61014561061c565b6040518082815260200191505060405180910390f35b341561016657600080fd5b61016e610622565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34156101bb57600080fd5b6101c3610648565b6040518082815260200191505060405180910390f35b34156101e457600080fd5b6101ec61064e565b6040518082815260200191505060405180910390f35b60025460015401421115151561021757600080fd5b6004543411151561022757600080fd5b6000600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff161415156102db5760045460056000600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082825401925050819055505b33600360006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550346004819055507ff4757a49b326036464bec6fe419a4ae38c8a02ce3e68bf0809674f6aab8ad3003334604051808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018281526020019250505060405180910390a15b565b6002546001540142101515156103a657600080fd5b600660009054906101000a900460ff161515156103c257600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc6004549081150290604051600060405180830381858888f19350505050151561042557600080fd5b6001600660006101000a81548160ff0219169083151502179055507fdaec4582d5d9595688c8c98545fdd1c696d41c6aeaeb636737e84ed2f5c00eda600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16600454604051808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018281526020019250505060405180910390a15b565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600080600560003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205490506000811115610613576000600560003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819055503373ffffffffffffffffffffffffffffffffffffffff166108fc829081150290604051600060405180830381858888f1935050505015156106125780600560003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000208190555060009150610618565b5b600191505b5090565b60015481565b600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60025481565b600454815600a165627a7a72305820098e8e9ce04ff09d90025d19e7f6773e499aa49e32659804dd0225f5929d7f8b0029',
+     gas: '6679614'
+   }, function (e, contract){
+    console.log(e, contract);
+    if (typeof contract.address !== 'undefined') {
+         console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
+    }
+ })
+deployed. _biddingTime =1200
+ Contract mined! address: 0xedf350dc8313f461a48ade7b29ead5e4b0cc3ea7 transactionHash: 0x67909ef164eb5d1c72cc7463733a6bada4dea226db821e3567d52599de6f0bf1
+
+
+bid
+INFO [08-15|17:11:49] Submitted transaction                    fullhash=0xefc2d7b2b26e7c174749ae4574f66abff1d8ae955795ba23a4fde29fd33d82cb recipient=0xedf350dc8313f461a48ade7b29ead5e4b0cc3ea7
+"0xefc2d7b2b26e7c174749ae4574f66abff1d8ae955795ba23a4fde29fd33d82cb"
+
+
+auctionEnd - worked!!!
+INFO [08-15|17:14:18] Submitted transaction                    fullhash=0xf154d11167486a4468a6c42e6d002144719e4fb9a31a442e16c7c9c1110ff47c recipient=0xedf350dc8313f461a48ade7b29ead5e4b0cc3ea7
+"0xf154d11167486a4468a6c42e6d002144719e4fb9a31a442e16c7c9c1110ff47c"

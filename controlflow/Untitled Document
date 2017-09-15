@@ -1,0 +1,67 @@
+
+contract ControlStructure {
+  function testControl (uint value) returns (uint) {
+    if(value == 1){
+        return 10;
+    }
+    else if(value == 2){
+        return 20;
+    }
+    else if(value == 3){
+        return 30;
+    }
+    else if(value == 4){
+        return 40;
+    }
+    else if(value == 5){
+        return 50;
+    }
+    else if(value == 6){
+        return 60;
+    }
+    else if(value == 7){
+        return 70;
+    }
+    else if(value == 8){
+        return 80;
+    }
+    else if(value == 9){
+        return 90;
+    }
+    else if(value == 10){
+        return 100;
+    }
+    else if(value == 11){
+        return 110;
+    }
+    else{
+        return 120;
+    }
+  }
+}
+
+
+var controlstructureContract = web3.eth.contract([{"constant":false,"inputs":[{"name":"value","type":"uint256"}],"name":"testControl","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"}]);
+var controlstructure = controlstructureContract.new(
+   {
+     from: web3.eth.accounts[0],
+     data: '0x606060405261017a806100126000396000f360606040526000357c01000000000000000000000000000000000000000000000000000000009004806305f45f2a1461003c57610037565b610002565b3461000257610057600480803590602001909190505061006d565b6040518082815260200191505060405180910390f35b6000600182141561008557600a905061017556610174565b600282141561009b576014905061017556610173565b60038214156100b157601e905061017556610172565b60048214156100c7576028905061017556610171565b60058214156100dd576032905061017556610170565b60068214156100f357603c90506101755661016f565b600782141561010957604690506101755661016e565b600882141561011f57605090506101755661016d565b600982141561013557605a90506101755661016c565b600a82141561014b57606490506101755661016b565b600b82141561016157606e90506101755661016a565b60789050610175565b5b5b5b5b5b5b5b5b5b5b5b91905056',
+     gas: '6693595'
+   }, function (e, contract){
+    console.log(e, contract);
+    if (typeof contract.address !== 'undefined') {
+         console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
+    }
+ })
+
+ INFO [08-26|15:12:31] Submitted contract creation              fullhash=0xe33301d9014af4dfd205807876e4f930c16d06b5fec652467cc2f2ffc3e3f3c8 contract=0x068ed532455d5135b10ccc01d264fdc87ec0babb
+null [object Object]
+
+
+testControl(10)
+INFO [08-26|15:24:12] Submitted transaction                    fullhash=0xff4e75d08471adc538b75908e3f3d34175b99fbd0bec87045f862b008c32f1c1 recipient=0x068ed532455d5135b10ccc01d264fdc87ec0babb
+"0xff4e75d08471adc538b75908e3f3d34175b99fbd0bec87045f862b008c32f1c1"
+
+testControl(5)
+INFO [08-26|15:56:01] Submitted transaction                    fullhash=0xd2d6cc6fc8b952718c33ea436c12b96ec418f78f70cb8c2e6662741839c0b37c recipient=0x068ed532455d5135b10ccc01d264fdc87ec0babb
+"0xd2d6cc6fc8b952718c33ea436c12b96ec418f78f70cb8c2e6662741839c0b37c"

@@ -1,0 +1,41 @@
+
+
+contract TestingEvents{
+
+    event Deposit(
+        address indexed _from,
+        bytes32 indexed _id,
+        uint _value
+    );
+
+    function deposit(bytes32 _id) payable {
+        // Any call to this function (even deeply nested) can
+        // be detected from the JavaScript API by filtering
+        // for `Deposit` to be called.
+        Deposit(msg.sender, _id, msg.value);
+    }
+}
+
+
+
+var browser_testingevents_sol_testingeventsContract = web3.eth.contract([{"constant":false,"inputs":[{"name":"_id","type":"bytes32"}],"name":"deposit","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":true,"name":"_id","type":"bytes32"},{"indexed":false,"name":"_value","type":"uint256"}],"name":"Deposit","type":"event"}]);
+var browser_testingevents_sol_testingevents = browser_testingevents_sol_testingeventsContract.new(
+   {
+     from: web3.eth.accounts[0],
+     data: '0x6060604052341561000f57600080fd5b5b60da8061001e6000396000f30060606040526000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063b214faa514603d575b600080fd5b60556004808035600019169060200190919050506057565b005b80600019163373ffffffffffffffffffffffffffffffffffffffff167f19dacbf83c5de6658e14cbf7bcae5c15eca2eedecf1c66fbca928e4d351bea0f346040518082815260200191505060405180910390a35b505600a165627a7a7230582074c73002bc0044712ad7beffd7609bb0f736d7a4dd77844572285bc3057ac7b20029',
+     gas: '4300000'
+   }, function (e, contract){
+    console.log(e, contract);
+    if (typeof contract.address !== 'undefined') {
+         console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
+    }
+ })
+
+
+
+INFO [09-04|11:22:34] Submitted contract creation              fullhash=0xa659ba041fed3ec84a040e039c2c49b006d71a774c231fad65be2e4793606c27 contract=0x0ad2f2a81ca142ac628b624f11e47e7f7dc4d9ba
+null [object Object]
+
+deposit(42)
+INFO [09-04|11:34:42] Submitted transaction                    fullhash=0x3017ef6158fdbcee2b2b3d7ca262f2c721bc2dd7c0584ada500c23583e05c677 recipient=0x0ad2f2a81ca142ac628b624f11e47e7f7dc4d9ba
+"0x3017ef6158fdbcee2b2b3d7ca262f2c721bc2dd7c0584ada500c23583e05c677"

@@ -1,0 +1,86 @@
+pragma solidity ^0.4.0;
+contract IdentityFunction {
+  function identity (uint value) returns (uint) {
+    return value;
+  }
+}
+///////////////
+non optimised bytecode
+606060405260758060106000396000f360606040526000357c010000000000000000000000000000000000000000000000000000000090048063ac37eebb146039576035565b6002565b34600257605160048080359060200190919050506067565b6040518082815260200191505060405180910390f35b60008190506070565b91905056
+var identityfunctionContract = web3.eth.contract([{"constant":false,"inputs":[{"name":"value","type":"uint256"}],"name":"identity","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"}]);
+var identityfunction = identityfunctionContract.new(
+   {
+     from: web3.eth.accounts[0],
+     data: '0x606060405260758060106000396000f360606040526000357c010000000000000000000000000000000000000000000000000000000090048063ac37eebb146039576035565b6002565b34600257605160048080359060200190919050506067565b6040518082815260200191505060405180910390f35b60008190506070565b91905056',
+     gas: '6686101'
+   }, function (e, contract){
+    console.log(e, contract);
+    if (typeof contract.address !== 'undefined') {
+         console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
+    }
+ })
+INFO [08-26|11:36:12] Submitted contract creation              fullhash=0x57be7ec4673dfb5885b99a6628c12b84b0db5a68b40c7f85122a6b7b3b5bde0a contract=0x26700a11dcf7b0c870a82c4393fe548d40982681
+identity(42)
+INFO [08-26|12:04:40] Submitted transaction                    fullhash=0xf90adc5ba08144e85e8f8239b2899e78d871fbf367b7dc93f363d049501976ea recipient=0x26700a11dcf7b0c870a82c4393fe548d40982681
+"0xf90adc5ba08144e85e8f8239b2899e78d871fbf367b7dc93f363d049501976ea
+
+
+
+
+
+//////////////////////
+optimised
+6060604052602d8060106000396000f3606060405260e060020a6000350463ac37eebb8114601c575b6002565b346002576004356060908152602090f3
+
+
+var identityfunctionContract = web3.eth.contract([{"constant":false,"inputs":[{"name":"value","type":"uint256"}],"name":"identity","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"}]);
+var identityfunctionOpt = identityfunctionContract.new(
+   {
+     from: web3.eth.accounts[0],
+     data: '0x6060604052602d8060106000396000f3606060405260e060020a6000350463ac37eebb8114601c575b6002565b346002576004356060908152602090f3',
+     gas: '6679616'
+   }, function (e, contract){
+    console.log(e, contract);
+    if (typeof contract.address !== 'undefined') {
+         console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
+    }
+ })
+
+ INFO [08-26|11:38:18] Submitted contract creation              fullhash=0xbd8beecbd88e41381e07883a605246871f2ba3d553cf525a09c890a06a8e6741 contract=0xe18bf94a665127888edd73b0e9fe479309df3078
+
+ INFO [08-26|12:06:28] Submitted transaction                    fullhash=0x0aaff7be410e85f64930363d5aab3f502e9b8539040410698a7564e323e7c44e recipient=0xe18bf94a665127888edd73b0e9fe479309df3078
+ "0x0aaff7be410e85f64930363d5aab3f502e9b8539040410698a7564e323e7c44e"
+
+
+
+
+
+////////////////////
+LLL
+var abi = [{"name":"identity","type":"function","constant":true,"payable":false,"inputs":[{"name":"input","type":"uint256"}],"outputs":[{"name":"","type":"uint256"}]}
+var bin = '601f80600c6000396000f30063ac37eebb60e060020a600035041415601e5760043560005260206000f35b'
+var identityfunctionLLL = identityfunctionContract.new(
+   {
+     from: web3.eth.accounts[0],
+     data: '0x601f80600c6000396000f30063ac37eebb60e060020a600035041415601e5760043560005260206000f35b',
+     gas: '6679616'
+   }, function (e, contract){
+    console.log(e, contract);
+    if (typeof contract.address !== 'undefined') {
+         console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
+    }
+ })
+
+ INFO [08-26|11:39:51] Submitted contract creation              fullhash=0x211b27c69380f1886e268ea378d82d598d893e65589b0a1d5f445fa591cd5a6b contract=0x4f5fb05a8d42c2ceec8140d1b4cf2471e256b9ae
+
+ INFO [08-26|12:07:52] Submitted transaction                    fullhash=0x736e4a0acfb292922564e1d1334f6cad6aef1d3f8833d9ceb62cc719c8bc2c54 recipient=0x4f5fb05a8d42c2ceec8140d1b4cf2471e256b9ae
+ "0x736e4a0acfb292922564e1d1334f6cad6aef1d3f8833d9ceb62cc719c8bc2c54"
+
+
+
+
+////////////////investigation into why deploymentes are different
+
+INFO [09-04|12:40:00] Submitted contract creation              fullhash=0x54321888626cab77f29dfb1aab7f00d507ae5f84d9a5218b2ef9e468269d7a21 contract=0xf76a89a41b52a7e31aeb817688437cac602eaed8
+null [object Object]
+undefined
